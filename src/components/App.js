@@ -40,6 +40,7 @@ const [printResult, setPrintResult] = useState(false)
       {/* Do not remove the main div */}
       <input
         type="text"
+        name = "name1test"
         placeholder="First Name"
         data-testid="input1"
         onChange={(e) => setName1(e.target.value)}
@@ -47,6 +48,7 @@ const [printResult, setPrintResult] = useState(false)
       />
       <input
         type="text"
+        name = "name2"
         placeholder="Second Name"
         data-testid="input2"
         onChange={(e) => setName2(e.target.value)}
