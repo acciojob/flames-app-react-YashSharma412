@@ -17,6 +17,11 @@ const [printResult, setPrintResult] = useState(false)
     //         setName2(name2.replace(ch, ""))
     //     }
     // }
+    if (name1.trim() === 0 || name2.trim() === 0) {
+      setRelationShip("Please Enter valid input")
+      setPrintResult(true)
+
+    }
     let str1 = name1;
     let str2 = name2;
 
@@ -30,8 +35,8 @@ const [printResult, setPrintResult] = useState(false)
     console.log(str1, str2)
     setName1(str1);
     setName2(str2);
+    setRelationShip(relations[(str1.length + str2.length)%6]);
     setPrintResult(true)
-    // setRelationShip(relations[(str1.length + str2.length)%6]);
 
   }
 
@@ -40,7 +45,7 @@ const [printResult, setPrintResult] = useState(false)
       {/* Do not remove the main div */}
       <input
         type="text"
-        name = "name1test"
+        name = "name1"
         placeholder="First Name"
         data-testid="input1"
         onChange={(e) => setName1(e.target.value)}
@@ -62,14 +67,15 @@ const [printResult, setPrintResult] = useState(false)
       </button>
       <button data-testid="clear" onClick={()=>{
         setPrintResult(false);
+        setRelationShip("")
         setName1("");
         setName2("");
 
 
       }}>Clear</button>
       <h3 data-testid="answer">
-        {
-            printResult && relations[(name1.length+name2.length)%6]
+        {//relations[(name1.length+name2.length)%6]
+            printResult && relationShip
         }        
       </h3>
     </div>
